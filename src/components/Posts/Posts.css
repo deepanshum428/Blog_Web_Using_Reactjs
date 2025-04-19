@@ -1,0 +1,85 @@
+.section-post > div {
+  background-color: #17202a;
+  display: flex;
+  flex-wrap: wrap;
+}
+.section-post > div > div {
+  width: 30%;
+}
+
+p,
+a,
+li,
+input {
+  font-size: 1.6rem;
+  letter-spacing: 0.12rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+button {
+  padding: 0.8rem 3.2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: 0;
+  background-color: hsl(160, 80%, 48%);
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  margin-left: 1.2rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+}
+
+button:hover {
+  background-color: hsl(160, 80%, 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(9, 172, 115) 0px 7px 19px 0px;
+}
+
+.section-post {
+  width: 90%;
+
+  & ol {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+
+    & li {
+      background-color: #212f3c;
+      padding: 1.6rem;
+      border-radius: 0.3rem;
+      -webkit-border-radius: 0.3rem;
+      -moz-border-radius: 0.3rem;
+      -ms-border-radius: 0.3rem;
+      -o-border-radius: 0.3rem;
+      list-style-position: inside;
+      border-left: 0.2rem solid #fff;
+    }
+
+    & .btn-delete {
+      background-color: #e74c3c;
+
+      &:hover {
+        color: hsl(0, 0%, 100%);
+        box-shadow: rgb(167, 54, 13) 0px 7px 19px 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .section-post ol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .section-post ol {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
