@@ -7,7 +7,9 @@ import "./Posts.css";
 
 export default function Posts() {
   const [data, setData] = useState([]);
+  const [updateDataApi, setUpdateDataApi] = useState({});
 
+  // function to get post data
   const getPostData = async () => {
     const response = await getPost();
     console.log(response.data);
@@ -23,7 +25,7 @@ export default function Posts() {
     try {
       const res = await deletePost(id);
       if (res.status === 200) {
-        console.log("deleting");
+        console.log("deleting...");
         const newUpdatePost = data.filter((curPost) => {
           console.log("ss", curPost.id, id);
           return curPost.id !== id;
@@ -37,10 +39,20 @@ export default function Posts() {
     }
   };
 
+  // update post data
+  const handleUpdatePost = (curElem) => {
+    setUpdateDataApi(curElem);
+  };
+
   return (
     <>
-      <section>
-        <Form data={data} setData={setData} />
+      <section className="section-form">
+        <Form
+          data={data}
+          setData={setData}
+          updateDataApi={updateDataApi}
+          setUpdateDataApi={setUpdateDataApi}
+        />
       </section>
       <section className="section-post">
         <ol>
@@ -52,7 +64,7 @@ export default function Posts() {
                   Title: {title} {id}
                 </p>
                 <p>Body: {body}</p>
-                <button>Edit</button>
+                <button onClick={() => handleUpdatePost(curElem)}>Edit</button>
                 <button
                   className="btn-delete"
                   onClick={() => handleDeletePost(id)}
